@@ -11,7 +11,7 @@ class Search extends Component {
   }
   render() {
     const {
-      isModalShowing,
+      modalContents,
       results,
       pagination,
       onGifClick,
@@ -23,8 +23,11 @@ class Search extends Component {
           <h1 className="App-title">Welcomes</h1>
           <SearchInput searchGifs={this.props.searchGifs} />
         </header>
-        {isModalShowing &&
-          <Modal onModalClose={onModalClose} />
+        {modalContents &&
+          <Modal
+            contents={modalContents}
+            onModalClose={onModalClose}
+          />
         }
         {pagination &&
           <ResultsMeta pagination={pagination} />
@@ -36,6 +39,8 @@ class Search extends Component {
             key={item.id}
             src={item.images.fixed_height.url}
             title={item.title}
+            uploader={item.username}
+            uploadDate={item.import_datetime}
           />
         )}
       </div>

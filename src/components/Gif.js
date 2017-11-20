@@ -5,13 +5,13 @@ export default class Gif extends Component {
     super();
     this.handleGifClick = this.handleGifClick.bind(this);
   }
-  handleGifClick(id) {
-    this.props.onGifClick(id);
+  handleGifClick() {
+    this.props.onGifClick(this.props);
   }
   render() {
-    const { id, src, title } = this.props;
+    const { title, src } = this.props;
     return (
-      <img onClick={() => this.handleGifClick(id)} src={src} alt={title} />
+      <img onClick={() => this.handleGifClick()} src={src} alt={title} />
     )
   }
 }

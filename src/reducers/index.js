@@ -4,7 +4,7 @@ import modal from './modal';
 
 const rootReducer = combineReducers({
   search,
-  isModalShowing: modal,
+  modalContents: modal,
 });
 
 export default rootReducer;

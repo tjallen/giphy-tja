@@ -7,17 +7,17 @@ import {
 import Search from './../components/Search';
 
 const mapStateToProps = (state) => {
-  const { isModalShowing } = state;
+  const { modalContents } = state;
   const {
     isFetching,
     results,
     pagination,
   } = state.search;
   return {
-    isModalShowing,
     isFetching,
     results,
     pagination,
+    modalContents,
   }
 }
 
@@ -26,8 +26,8 @@ const mapDispatchToProps = dispatch => {
     searchGifs: (query) => {
       dispatch(searchGifs(query))
     },
-    onGifClick: (id) => {
-      dispatch(gifModalShow(id))
+    onGifClick: (gif) => {
+      dispatch(gifModalShow(gif))
     },
     onModalClose: (id) => {
       dispatch(gifModalHide(id))

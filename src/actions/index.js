@@ -19,10 +19,10 @@ export const searchGifs = (query) => {
   };
 };
 
-export const gifModalShow = (id) => {
+export const gifModalShow = (contents) => {
   return {
     type: GIF_MODAL_SHOW,
-    id,
+    contents,
   }
 };
 

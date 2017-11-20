@@ -3,12 +3,12 @@ import {
   GIF_MODAL_HIDE,
 } from './../actions';
 
-const modal = (state = false, action) => {
+const modal = (state = null, action) => {
   switch (action.type) {
     case GIF_MODAL_SHOW:
-      return true;
+      return action.contents;
     case GIF_MODAL_HIDE:
-      return false;
+      return null;
     default:
       return state;
   }
