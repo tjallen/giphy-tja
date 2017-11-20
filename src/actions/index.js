@@ -9,10 +9,10 @@ export const searchGifs = (query) => {
   return function(dispatch) {
   dispatch({ type: GIF_SEARCH_REQUEST });
   return fetch(request)
-    .then(res => res.json())
+    .then(response => response.json())
     .then(
-      data => dispatch({ type: GIF_SEARCH_SUCCESS, data }),
-      err => dispatch({ type: GIF_SEARCH_FAILURE, err })
+      response => dispatch({ type: GIF_SEARCH_SUCCESS, response }),
+      error => dispatch({ type: GIF_SEARCH_FAILURE, error })
     );
   }
 

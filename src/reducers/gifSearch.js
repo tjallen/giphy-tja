@@ -7,6 +7,7 @@ import {
 const initialState = {
   isFetching: false,
   results: [],
+  pagination: null,
 }
 
 const gifs = (state = initialState, action) => {
@@ -14,20 +15,19 @@ const gifs = (state = initialState, action) => {
     case GIF_SEARCH_REQUEST: {
       return Object.assign({}, state, {
         isFetching: true,
-        results: state.results,
       });
     }
     case GIF_SEARCH_SUCCESS: {
       return Object.assign({}, state, {
         isFetching: false,
-        results: action.data,
+        results: action.response.data,
+        pagination: action.response.pagination,
       });
     }
     case GIF_SEARCH_FAILURE: {
       return Object.assign({}, state, {
         isFetching: false,
-        results: [],
-        error: action.err,
+        error: action.error,
       })
     }
     default:
