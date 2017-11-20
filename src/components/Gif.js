@@ -1,6 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Gif = ({ id, src, title }) =>
-  <img src={src} alt={title} />
-
-export default Gif;
+export default class Gif extends Component {
+  constructor() {
+    super();
+    this.handleGifClick = this.handleGifClick.bind(this);
+  }
+  handleGifClick(title) {
+    alert(`ya clicked ${title}`)
+  }
+  render() {
+    const { src, title } = this.props;
+    return (
+      <img onClick={() => this.handleGifClick(title)} src={src} alt={title} />
+    )
+  }
+}
