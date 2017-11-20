@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import keys from '../keys.json';
 
 class Search extends Component {
   constructor(props) {
@@ -10,13 +9,7 @@ class Search extends Component {
     }
   }
   componentDidMount() {
-    const query = 'placeholder';
-    const request = `http://api.giphy.com/v1/gifs/search?q=${query}&api_key=${keys.giphy}`;
-    fetch(request)
-      .then(res => res.json())
-      .then(res => this.setState({
-        results: res.data,
-      }));
+    this.props.searchGifs('foo');
   }
   render() {
     const { results } = this.state;

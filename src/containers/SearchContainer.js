@@ -10,8 +10,17 @@ const mapStateToProps = (state) => {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    searchGifs: query => {
+       dispatch(searchGifs(query))
+    }
+  }
+}
+
 const SearchContainer = connect(
   mapStateToProps,
+  mapDispatchToProps,
 )(Search);
 
 export default SearchContainer;
