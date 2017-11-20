@@ -2,17 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 
 class Search extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      results: [],
-    }
-  }
   componentDidMount() {
     this.props.searchGifs('foo');
   }
   render() {
-    const { results } = this.state;
+    const { results } = this.props;
     return (
       <div className="App">
         <header className="App-header">

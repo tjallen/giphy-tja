@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import { searchGifs } from './../actions';
 import Search from './../components/Search';
 
-const mapStateToProps = (state) => {
-  const { isFetching, searchResults } = state;
+const mapStateToProps = ({ gifSearch: state }) => {
+  const { isFetching, results } = state;
   return {
     isFetching,
-    searchResults,
+    results,
   }
 }
 
