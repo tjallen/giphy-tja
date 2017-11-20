@@ -9,7 +9,7 @@ export const GIF_MODAL_HIDE = 'GIF_MODAL_HIDE';
 export const searchGifs = (query) => {
   const request = `http://api.giphy.com/v1/gifs/search?q=${query}&api_key=${keys.giphy}&limit=10`;
   return function(dispatch) {
-    dispatch({ type: GIF_SEARCH_REQUEST });
+    dispatch({ type: GIF_SEARCH_REQUEST, query });
     return fetch(request)
       .then(response => response.json())
       .then(
