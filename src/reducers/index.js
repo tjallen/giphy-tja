@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import gifSearch from './gifSearch';
+import search from './search';
 
 const rootReducer = combineReducers({
-  gifSearch,
+  search,
 });
 
 export default rootReducer;

@@ -4,6 +4,9 @@ import SearchInput from './SearchInput';
 import Gif from './Gif';
 
 class Search extends Component {
+  componentDidMount() {
+    this.props.searchGifs('maru')
+  }
   render() {
     const { results } = this.props;
     return (
