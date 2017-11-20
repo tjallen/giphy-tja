@@ -4,7 +4,7 @@ import {
   gifModalShow,
   gifModalHide,
 } from './../actions';
-import Search from './../components/Search';
+import App from './../components/App';
 
 const mapStateToProps = (state) => {
   const { modalContents } = state;
@@ -35,9 +35,9 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-const SearchContainer = connect(
+const AppContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Search);
+)(App);
 
-export default SearchContainer;
+export default AppContainer;

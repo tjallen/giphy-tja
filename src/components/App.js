@@ -5,7 +5,7 @@ import Gif from './Gif';
 import ResultsMeta from './ResultsMeta';
 import Modal from './Modal';
 
-class Search extends Component {
+class App extends Component {
   componentDidMount() {
     this.props.searchGifs('maru')
   }
@@ -48,4 +48,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default App;
