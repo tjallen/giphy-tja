@@ -3,10 +3,11 @@ import { searchGifs } from './../actions';
 import Search from './../components/Search';
 
 const mapStateToProps = ({ search: state }) => {
-  const { isFetching, results } = state;
+  const { isFetching, results, pagination } = state;
   return {
     isFetching,
     results,
+    pagination,
   }
 }
 
