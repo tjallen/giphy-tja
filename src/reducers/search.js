@@ -5,7 +5,7 @@ import {
   GIF_SEARCH_FAILURE,
 } from './../actions';
 
-const resultsArray = (state = [], action) => {
+const results = (state = [], action) => {
   switch(action.type) {
     case GIF_SEARCH_SUCCESS:
       return action.response.data;
@@ -29,7 +29,7 @@ const isFetching = (state = false, action) => {
 }
 
 const search = combineReducers({
-  results: resultsArray,
+  results,
   isFetching,
 });
 
