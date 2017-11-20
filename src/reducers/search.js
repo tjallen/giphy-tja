@@ -16,6 +16,17 @@ const results = (state = [], action) => {
   }
 }
 
+const pagination = (state = null, action) => {
+  switch(action.type) {
+    case GIF_SEARCH_SUCCESS:
+      return action.response.pagination;
+    case GIF_SEARCH_FAILURE:
+    case GIF_SEARCH_REQUEST:
+    default:
+      return state;
+  }
+}
+
 const isFetching = (state = false, action) => {
   switch(action.type) {
     case GIF_SEARCH_REQUEST:
@@ -30,6 +41,7 @@ const isFetching = (state = false, action) => {
 
 const search = combineReducers({
   results,
+  pagination,
   isFetching,
 });
 
