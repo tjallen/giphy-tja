@@ -1,5 +1,8 @@
 import { connect } from 'react-redux';
-import { searchGifs } from './../actions';
+import {
+  searchGifs,
+  gifModalShow,
+} from './../actions';
 import Search from './../components/Search';
 
 const mapStateToProps = ({ search: state }) => {
@@ -13,8 +16,14 @@ const mapStateToProps = ({ search: state }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    searchGifs: query => {
-       dispatch(searchGifs(query))
+    // searchGifs: query => {
+    //    dispatch(searchGifs(query))
+    // }
+    searchGifs: (query) => {
+      dispatch(searchGifs(query))
+    },
+    onGifClick: (id) => {
+      dispatch(gifModalShow(id))
     }
   }
 }

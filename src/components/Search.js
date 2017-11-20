@@ -9,7 +9,7 @@ class Search extends Component {
     this.props.searchGifs('maru')
   }
   render() {
-    const { results, pagination } = this.props;
+    const { results, pagination, onGifClick } = this.props;
     return (
       <div className="App">
         <header className="App-header">
@@ -21,6 +21,8 @@ class Search extends Component {
         }
         {results.map((item) =>
           <Gif
+            id={item.id}
+            onGifClick={onGifClick}
             key={item.id}
             src={item.images.fixed_height.url}
             title={item.title}
