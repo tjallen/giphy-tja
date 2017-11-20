@@ -25,3 +25,10 @@ export const gifModalShow = (id) => {
     id,
   }
 };
+
+export const gifModalHide = (id) => {
+  return {
+    type: GIF_MODAL_HIDE,
+    id,
+  }
+};
