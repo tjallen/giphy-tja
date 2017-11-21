@@ -46,7 +46,7 @@ export default class Modal extends Component {
   }
   render() {
     if (!this.props.contents) return null;
-    const { src, title, username, uploadDate } = this.props.contents;
+    const { src, title, uploader, uploadDate } = this.props.contents;
     return (
       <ModalWrapper onClick={this.handleCloseClick}>
         <ModalInner>
@@ -57,7 +57,7 @@ export default class Modal extends Component {
           </a>
           <h3>{title}</h3>
           <img src={src} alt={title} />
-          <p>{`Uploaded by ${username || 'anon'} on ${uploadDate}`}</p>
+          <p>{`Uploaded by ${uploader || 'anon'} on ${uploadDate}`}</p>
         </ModalInner>
       </ModalWrapper>
     )
