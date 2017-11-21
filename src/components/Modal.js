@@ -3,6 +3,10 @@ import styled from 'styled-components';
 
 const ModalWrapper = styled.div`
   position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
   background: rgba(36, 36, 36, 0.75);
   height: 100%;
   width: 100%;
@@ -10,6 +14,10 @@ const ModalWrapper = styled.div`
 `;
 
 const ModalInner = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   background: #fff;
   position: relative;
   z-index: 100;
@@ -39,10 +47,10 @@ export default class Modal extends Component {
   render() {
     const { src, title, username, uploadDate } = this.props.contents;
     return (
-      <ModalWrapper>
+      <ModalWrapper onClick={this.handleCloseClick}>
         <ModalInner>
           <a
-          onClick={() => this.handleCloseClick()}
+          onClick={this.handleCloseClick}
           >
             <CloseButton>X</CloseButton>
           </a>
