@@ -10,4 +10,8 @@ const ResultsMeta = ({ pagination, query }) => {
   );
 }
 
+ResultsMeta.defaultProps = {
+  query: 'your search query',
+};
+
 export default ResultsMeta;
