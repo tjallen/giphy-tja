@@ -4,17 +4,25 @@ export default class SearchInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: "",
+      query: this.props.query,
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  componentDidMount() {
+    const query = 'maru';
+    this.setState({ query });
+    this.submitGifSearch(query);
   }
   handleChange(e) {
     this.setState({ query: e.target.value });
   }
   handleSubmit(e) {
     e.preventDefault();
-    this.props.searchGifs(this.state.query);
+    this.submitGifSearch(this.state.query);
+  }
+  submitGifSearch(query) {
+    this.props.searchGifs(query);
   }
   render() {
     return (
@@ -35,3 +43,7 @@ export default class SearchInput extends React.Component {
     );
   }
 }
+
+SearchInput.defaultProps = {
+  query: '',
+};

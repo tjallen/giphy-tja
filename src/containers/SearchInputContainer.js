@@ -1,37 +1,31 @@
 import { connect } from 'react-redux';
+import SearchInput from './../components/SearchInput';
 import {
-  gifModalHide,
+  searchGifs,
 } from './../actions';
-import App from './../components/App';
 
 const mapStateToProps = (state) => {
-  const { modalContents } = state;
   const {
     isFetching,
-    results,
-    pagination,
     query,
   } = state.search;
   return {
     isFetching,
-    results,
-    pagination,
-    modalContents,
     query,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onModalClose: (id) => {
-      dispatch(gifModalHide(id))
-    },
+    searchGifs: (query) => {
+      dispatch(searchGifs(query))
+    }, 
   }
-}
+};
 
-const AppContainer = connect(
+const SearchInputContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(App);
+)(SearchInput);
 
-export default AppContainer;
+export default SearchInputContainer;
