@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import SearchInput from './SearchInput';
-import Gif from './Gif';
-import ResultsMeta from './ResultsMeta';
 import Modal from './Modal';
+import ResultsContainer from './../containers/ResultsContainer';
 
 class App extends Component {
   componentDidMount() {
@@ -12,11 +11,7 @@ class App extends Component {
   render() {
     const {
       modalContents,
-      results,
-      pagination,
-      onGifClick,
       onModalClose,
-      query,
     } = this.props;
     return (
       <div className="App">
@@ -30,20 +25,7 @@ class App extends Component {
             onModalClose={onModalClose}
           />
         }
-        {pagination &&
-          <ResultsMeta pagination={pagination} query={query} />
-        }
-        {results.map((item) =>
-          <Gif
-            id={item.id}
-            onGifClick={onGifClick}
-            key={item.id}
-            src={item.images.fixed_height.url}
-            title={item.title}
-            uploader={item.username}
-            uploadDate={item.import_datetime}
-          />
-        )}
+        <ResultsContainer />
       </div>
     );
   }
