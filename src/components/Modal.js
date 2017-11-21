@@ -25,7 +25,7 @@ const ModalInner = styled.div`
   margin: 0 auto;
   border-radius: 4px;
   padding: 10px;
-`
+`;
 
 const CloseButton = styled.div`
   position: absolute;
@@ -34,7 +34,7 @@ const CloseButton = styled.div`
   margin: 10px;
   z-index: 101;
   cursor: pointer;
-`
+`;
 
 export default class Modal extends Component {
   constructor() {
@@ -45,6 +45,7 @@ export default class Modal extends Component {
     this.props.onModalClose();
   }
   render() {
+    if (!this.props.contents) return null;
     const { src, title, username, uploadDate } = this.props.contents;
     return (
       <ModalWrapper onClick={this.handleCloseClick}>

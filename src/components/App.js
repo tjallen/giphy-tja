@@ -1,30 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
-import Modal from './Modal';
 import SearchInputContainer from './../containers/SearchInputContainer';
+import ModalContainer from './../containers/ModalContainer';
 import ResultsContainer from './../containers/ResultsContainer';
+import styled from 'styled-components';
+
+const AppWrapper = styled.div`
+  text-align: center;
+`
 
 class App extends Component {
-
   render() {
-    const {
-      modalContents,
-      onModalClose,
-    } = this.props;
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcomes</h1>
-          <SearchInputContainer />
-        </header>
-        {modalContents &&
-          <Modal
-            contents={modalContents}
-            onModalClose={onModalClose}
-          />
-        }
+      <AppWrapper>
+        <SearchInputContainer />
+        <ModalContainer />
         <ResultsContainer />
-      </div>
+      </AppWrapper>
     );
   }
 }

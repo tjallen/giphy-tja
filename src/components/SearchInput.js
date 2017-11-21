@@ -1,4 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Header = styled.header`
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+`;
+const Title = styled.h1`
+  font-size: 1.5em;
+`;
 
 export default class SearchInput extends React.Component {
   constructor(props) {
@@ -26,20 +37,24 @@ export default class SearchInput extends React.Component {
   }
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          placeholder="Search for a gif"
-          ref={(input) => { this.input = input }}
-          value={this.state.query}
-          onChange={this.handleChange}
-        />
-        <input
-          type="submit"
-          value="Go"
-          onClick={this.handleSubmit}
-        />
-      </form>
+      <Header>
+        <Title>Search Giphy</Title>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            placeholder="Search for a gif"
+            ref={(input) => { this.input = input }}
+            value={this.state.query}
+            onChange={this.handleChange}
+          />
+          <input
+            type="submit"
+            value="Go"
+            onClick={this.handleSubmit}
+          />
+        </form>
+      </Header>
+
     );
   }
 }
