@@ -9,7 +9,11 @@ export default class Results extends Component {
       onGifClick,
       pagination,
       query,
+      isFetching,
     } = this.props;
+    if (isFetching) return (
+      <p>Loading...</p>
+    )
     return (
       <div>
         {pagination &&
