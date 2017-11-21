@@ -12,12 +12,14 @@ const mapStateToProps = (state) => {
     isFetching,
     results,
     pagination,
+    query,
   } = state.search;
   return {
     isFetching,
     results,
     pagination,
     modalContents,
+    query,
   }
 }
 

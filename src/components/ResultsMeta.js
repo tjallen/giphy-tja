@@ -1,12 +1,12 @@
 import React from 'react';
 
-const ResultsMeta = ({ pagination }) => {
+const ResultsMeta = ({ pagination, query }) => {
   const {
     count: c,
     total_count: t,
-  } = pagination;
+  } = pagination
   return (
-    <p>{`Displaying ${c} results of ${t} total`}</p>
+    <p>{`Displaying ${c} results for`} <b>{query}</b> {`of ${t} total`}</p>
   );
 }
 

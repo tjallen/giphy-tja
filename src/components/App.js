@@ -16,6 +16,7 @@ class App extends Component {
       pagination,
       onGifClick,
       onModalClose,
+      query,
     } = this.props;
     return (
       <div className="App">
@@ -30,7 +31,7 @@ class App extends Component {
           />
         }
         {pagination &&
-          <ResultsMeta pagination={pagination} />
+          <ResultsMeta pagination={pagination} query={query} />
         }
         {results.map((item) =>
           <Gif

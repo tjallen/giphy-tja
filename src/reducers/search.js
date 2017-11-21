@@ -5,7 +5,7 @@ import {
   GIF_SEARCH_FAILURE,
 } from './../actions';
 
-const query = (state = null, action) => {
+const query = (state = '', action) => {
   switch (action.type) {
     case GIF_SEARCH_REQUEST:
       return action.query;
