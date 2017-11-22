@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import SearchInputContainer from './../containers/SearchInputContainer';
 import ModalContainer from './../containers/ModalContainer';
 import ResultsContainer from './../containers/ResultsContainer';
