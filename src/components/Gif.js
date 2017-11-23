@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
+const Img = styled.img`
+  cursor: pointer;
+`;
 
 export default class Gif extends Component {
   constructor() {
@@ -11,7 +16,7 @@ export default class Gif extends Component {
   render() {
     const { title, src } = this.props;
     return (
-      <img onClick={() => this.handleGifClick()} src={src} alt={title} />
+      <Img onClick={() => this.handleGifClick()} src={src} alt={title} />
     )
   }
 }

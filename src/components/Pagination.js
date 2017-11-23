@@ -1,4 +1,25 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
+const PaginationWrapper = styled.div`
+  width: 60%;
+  margin: 10px auto;
+`;
+
+const PaginationMeta = styled.span`
+  margin: 0 20px;
+`;
+
+const Button = styled.button`
+  padding: 10px;
+  border-radius: 3px;
+  border: none;
+  background-color: salmon;
+  color: #fff;
+  border-color: transparent;
+  text-transform: uppercase;
+  cursor: pointer;
+`;
 
 export default class Pagination extends Component {
   constructor(props) {
@@ -28,17 +49,17 @@ export default class Pagination extends Component {
     const pageNumber = (offset / resultsPerPage) + 1;
     const totalPages = Math.ceil(total_count / resultsPerPage);
     return (
-      <div>
-        <button
+      <PaginationWrapper>
+        <Button
           disabled={offset < resultsPerPage}
           onClick={this.handlePrevClick}
-        >Prev</button>
-        <span>Page {pageNumber} of {totalPages}</span>
-        <button
+        >&larr; Prev</Button>
+        <PaginationMeta>Page {pageNumber} of {totalPages}</PaginationMeta>
+        <Button
           onClick={this.handleNextClick}
           disabled={offset + resultsPerPage >= total_count}
-        >Next</button>
-      </div>
+        >Next &rarr;</Button>
+      </PaginationWrapper>
     );
   }
 }

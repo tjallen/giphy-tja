@@ -7,10 +7,29 @@ const Header = styled.header`
   padding: 20px;
   color: white;
 `;
+
 const Title = styled.h1`
   font-size: 1.5em;
+  font-weight: normal;
 `;
 
+const Input = styled.input`
+  padding: 10px;
+`
+
+const InputField = styled(Input)`
+  border-radius: 3px 0 0 3px;
+  border: none;
+`
+
+const InputSubmit = styled(Input)`
+  background: salmon;
+  border-radius: 0 3px 3px 0;
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+`
 export default class SearchInput extends React.Component {
   constructor(props) {
     super(props);
@@ -40,21 +59,20 @@ export default class SearchInput extends React.Component {
       <Header>
         <Title>Search Giphy</Title>
         <form onSubmit={this.handleSubmit}>
-          <input
+          <InputField
             type="text"
             placeholder="Search for a gif"
             ref={(input) => { this.input = input }}
             value={this.state.query}
             onChange={this.handleChange}
           />
-          <input
+          <InputSubmit
             type="submit"
             value="Go"
             onClick={this.handleSubmit}
           />
         </form>
       </Header>
-
     );
   }
 }
