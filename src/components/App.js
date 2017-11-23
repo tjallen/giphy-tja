@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchInputContainer from './../containers/SearchInputContainer';
 import ModalContainer from './../containers/ModalContainer';
 import ResultsContainer from './../containers/ResultsContainer';
+import PaginationContainer from './../containers/PaginationContainer';
 import styled from 'styled-components';
 
 const AppWrapper = styled.div`
@@ -16,6 +17,7 @@ class App extends Component {
         <SearchInputContainer />
         <ModalContainer />
         <ResultsContainer />
+        <PaginationContainer />
       </AppWrapper>
     );
   }

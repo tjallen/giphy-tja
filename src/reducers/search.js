@@ -25,6 +25,11 @@ const results = (state = [], action) => {
   }
 }
 
+const resultsPerPage = (state = 10, action) => {
+  // TODO
+  return state;
+}
+
 const pagination = (state = null, action) => {
   switch(action.type) {
     case GIF_SEARCH_SUCCESS:
@@ -51,6 +56,7 @@ const isFetching = (state = false, action) => {
 const search = combineReducers({
   query,
   results,
+  resultsPerPage,
   pagination,
   isFetching,
 });
