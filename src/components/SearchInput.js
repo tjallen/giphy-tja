@@ -26,7 +26,6 @@ const InputSubmit = styled(Input)`
   background: salmon;
   border-radius: 0 3px 3px 0;
   border: none;
-  color: #fff;
   text-transform: uppercase;
   cursor: pointer;
 `

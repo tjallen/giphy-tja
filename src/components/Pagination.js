@@ -15,10 +15,14 @@ const Button = styled.button`
   border-radius: 3px;
   border: none;
   background-color: salmon;
-  color: #fff;
   border-color: transparent;
   text-transform: uppercase;
   cursor: pointer;
+  &:disabled {
+    background: #eaeaea;
+    color: #c1c1c1;
+    cursor: default;
+  }
 `;
 
 export default class Pagination extends Component {
