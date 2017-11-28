@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import debounce from 'lodash.debounce';
 
 const Header = styled.header`
   background-color: #222;
@@ -32,43 +33,41 @@ const InputSubmit = styled(Input)`
 export default class SearchInput extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      query: this.props.query,
-    }
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.debouncedSubmit = debounce(this.handleSubmit, 450);
   }
   componentDidMount() {
-    const query = 'maru';
-    this.setState({ query });
-    this.submitGifSearch(query);
+    this._searchInput.focus();
   }
   handleChange(e) {
-    this.setState({ query: e.target.value });
-  }
-  handleSubmit(e) {
     e.preventDefault();
-    this.submitGifSearch(this.state.query);
+    const query = this._searchInput.value;
+    if (!query) {
+      console.log('TODO add clear query action');
+      return;
+    }
+    this.debouncedSubmit(query);
   }
-  submitGifSearch(query) {
+  handleSubmit(query) {
     this.props.searchGifs(query);
   }
   render() {
     return (
       <Header>
         <Title>Search Giphy</Title>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <InputField
             type="text"
             placeholder="Search for a gif"
-            ref={(input) => { this.input = input }}
-            value={this.state.query}
+            innerRef={(input) =>
+              { this._searchInput = input }}
+            // value={this.state.query}
             onChange={this.handleChange}
           />
           <InputSubmit
             type="submit"
             value="Go"
-            onClick={this.handleSubmit}
+            onClick={this.handleChange}
           />
         </form>
       </Header>
