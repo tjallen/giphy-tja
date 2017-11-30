@@ -43,7 +43,7 @@ export default class SearchInput extends React.Component {
     e.preventDefault();
     const query = this._searchInput.value;
     if (!query) {
-      console.log('TODO add clear query action');
+      this.props.gifSearchClear();
       return;
     }
     this.debouncedSubmit(query);

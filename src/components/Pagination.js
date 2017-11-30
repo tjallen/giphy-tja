@@ -31,10 +31,6 @@ export default class Pagination extends Component {
     this.handlePrevClick = this.handlePrevClick.bind(this);
     this.handleNextClick = this.handleNextClick.bind(this);
   }
-  shouldComponentUpdate(nextProps) {
-    if (nextProps.pagination !== null) return true;
-    return false;
-  }
   handlePrevClick() {
     const { resultsPerPage } = this.props;
     const { offset } = this.props.pagination;

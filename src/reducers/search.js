@@ -3,6 +3,7 @@ import {
   GIF_SEARCH_REQUEST,
   GIF_SEARCH_SUCCESS,
   GIF_SEARCH_FAILURE,
+  GIF_SEARCH_CLEAR,
 } from './../actions';
 
 const query = (state = '', action) => {
@@ -19,6 +20,7 @@ const results = (state = [], action) => {
     case GIF_SEARCH_SUCCESS:
       return action.response.data;
     case GIF_SEARCH_FAILURE:
+    case GIF_SEARCH_CLEAR:
       return [];
     default:
       return state;
@@ -32,6 +34,8 @@ const resultsPerPage = (state = 10, action) => {
 
 const pagination = (state = null, action) => {
   switch(action.type) {
+    case GIF_SEARCH_CLEAR:
+      return null;
     case GIF_SEARCH_SUCCESS:
       return action.response.pagination;
     case GIF_SEARCH_FAILURE:

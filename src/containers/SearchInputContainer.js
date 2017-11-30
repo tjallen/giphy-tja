@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import SearchInput from './../components/SearchInput';
 import {
   searchGifs,
+  gifSearchClear,
 } from './../actions';
 
 const mapStateToProps = (state) => {
@@ -20,6 +21,9 @@ const mapDispatchToProps = dispatch => {
     searchGifs: (query) => {
       dispatch(searchGifs(query))
     }, 
+    gifSearchClear: () => {
+      dispatch(gifSearchClear())
+    },
   }
 };
 

@@ -3,6 +3,7 @@ import keys from '../keys.json';
 export const GIF_SEARCH_REQUEST = 'GIF_SEARCH_REQUEST';
 export const GIF_SEARCH_SUCCESS = 'GIF_SEARCH_SUCCESS';
 export const GIF_SEARCH_FAILURE = 'GIF_SEARCH_FAILURE';
+export const GIF_SEARCH_CLEAR = 'GIF_SEARCH_CLEAR';
 export const GIF_MODAL_SHOW = 'GIF_MODAL_SHOW';
 export const GIF_MODAL_HIDE = 'GIF_MODAL_HIDE';
 
@@ -31,3 +32,7 @@ export const gifModalHide = () => {
     type: GIF_MODAL_HIDE,
   }
 };
+
+export const gifSearchClear = () => (
+  { type: GIF_SEARCH_CLEAR }
+);
