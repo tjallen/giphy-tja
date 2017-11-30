@@ -1,8 +1,21 @@
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Modal from './../components/Modal';
 import {
   gifModalHide,
 } from './../actions';
+
+class ModalContainer extends Component {
+  render() {
+    const { contents } = this.props;
+    if (contents !== null) {
+      return (
+        <Modal {...this.props} />
+      );
+    }
+    return null;
+  }
+}
 
 const mapStateToProps = (state) => {
   const {
@@ -21,10 +34,10 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
-const ModalContainer = connect(
+ModalContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Modal);
+)(ModalContainer);
 
 export default ModalContainer;
 

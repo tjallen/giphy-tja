@@ -45,7 +45,6 @@ export default class Modal extends Component {
     this.props.onModalClose();
   }
   render() {
-    if (!this.props.contents) return null;
     const { src, title, uploader, uploadDate } = this.props.contents;
     return (
       <ModalWrapper onClick={this.handleCloseClick}>

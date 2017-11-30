@@ -43,7 +43,6 @@ export default class Pagination extends Component {
     this.props.searchGifs(this.props.query, offset + resultsPerPage);
   }
   render() {
-    if (this.props.pagination === null)  return null;
     const { resultsPerPage } = this.props;
     const { offset, total_count } = this.props.pagination;
     const pageNumber = (offset / resultsPerPage) + 1;

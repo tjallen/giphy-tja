@@ -61,7 +61,6 @@ export default class SearchInput extends React.Component {
             placeholder="Search for a gif"
             innerRef={(input) =>
               { this._searchInput = input }}
-            // value={this.state.query}
             onChange={this.handleChange}
           />
           <InputSubmit

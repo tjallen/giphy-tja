@@ -1,3 +1,4 @@
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
   searchGifs,
@@ -21,6 +22,18 @@ const mapStateToProps = (state) => {
   }
 }
 
+class PaginationContainer extends Component {
+  render() {
+    const { pagination } = this.props;
+    if (pagination !== null) {
+      return (
+        <Pagination {...this.props} />
+      );
+    }
+    return null;
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     searchGifs: (query, offset, limit) => {
@@ -29,10 +42,10 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-const PaginationContainer = connect(
+PaginationContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Pagination);
+)(PaginationContainer);
 
 export default PaginationContainer;
 
