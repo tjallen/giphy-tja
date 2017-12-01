@@ -14,11 +14,17 @@ export const APICall = (query, offset = 0, limit = 10) => {
     return fetch(request)
       .then(response => response.json())
       .then(
-        response => dispatch({ type: GIF_SEARCH_SUCCESS, response }),
+        response => dispatch(receiveResults(response)),
         error => dispatch({ type: GIF_SEARCH_FAILURE, error })
       );
   };
 };
+
+const receiveResults = (response) => {
+  return {
+    type: GIF_SEARCH_SUCCESS, response
+  }
+}
 
 export const gifModalShow = (contents) => {
   return {
