@@ -35,11 +35,11 @@ const resultsPerPage = (state = 10, action) => {
 const pagination = (state = null, action) => {
   switch(action.type) {
     case GIF_SEARCH_CLEAR:
+    case GIF_SEARCH_REQUEST:
       return null;
     case GIF_SEARCH_SUCCESS:
       return action.response.pagination;
     case GIF_SEARCH_FAILURE:
-    case GIF_SEARCH_REQUEST:
     default:
       return state;
   }
