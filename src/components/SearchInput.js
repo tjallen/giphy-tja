@@ -49,7 +49,7 @@ export default class SearchInput extends React.Component {
     this.debouncedSubmit(query);
   }
   handleSubmit(query) {
-    this.props.searchGifs(query);
+    this.props.APICall(query);
   }
   render() {
     return (

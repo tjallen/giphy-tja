@@ -42,16 +42,16 @@ export default class Pagination extends Component {
     const { resultsPerPage } = this.props;
     const { offset } = this.props.pagination;
     const newOffset = Math.max(0, offset - resultsPerPage);
-    this.props.searchGifs(this.props.query, newOffset);
+    this.props.APICall(this.props.query, newOffset);
   }
   handleNextClick() {
     const { resultsPerPage } = this.props;
     const { offset } = this.props.pagination;
-    this.props.searchGifs(this.props.query, offset + resultsPerPage);
+    this.props.APICall(this.props.query, offset + resultsPerPage);
   }
   handlePageClick(page) {
     const newOffset = page === 0 ? page : page * 10;
-    this.props.searchGifs(this.props.query, newOffset);
+    this.props.APICall(this.props.query, newOffset);
   }
   returnClosestPages() {
     const { offset, total_count } = this.props.pagination;

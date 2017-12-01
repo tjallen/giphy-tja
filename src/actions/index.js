@@ -7,7 +7,7 @@ export const GIF_SEARCH_CLEAR = 'GIF_SEARCH_CLEAR';
 export const GIF_MODAL_SHOW = 'GIF_MODAL_SHOW';
 export const GIF_MODAL_HIDE = 'GIF_MODAL_HIDE';
 
-export const searchGifs = (query, offset = 0, limit = 10) => {
+export const APICall = (query, offset = 0, limit = 10) => {
   const request = `http://api.giphy.com/v1/gifs/search?q=${query}&api_key=${keys.giphy}&limit=${limit}&offset=${offset}`;
   return function(dispatch) {
     dispatch({ type: GIF_SEARCH_REQUEST, query });

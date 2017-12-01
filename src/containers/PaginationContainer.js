@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-  searchGifs,
+  APICall,
 } from './../actions';
 import Pagination from './../components/Pagination';
 
@@ -36,8 +36,8 @@ class PaginationContainer extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    searchGifs: (query, offset, limit) => {
-      dispatch(searchGifs(query, offset, limit))
+    APICall: (query, offset, limit) => {
+      dispatch(APICall(query, offset, limit))
     }, 
   }
 }
