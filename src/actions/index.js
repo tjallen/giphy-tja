@@ -1,28 +1,28 @@
 import keys from '../keys.json';
 
-export const GIF_SEARCH_REQUEST = 'GIF_SEARCH_REQUEST';
-export const GIF_SEARCH_SUCCESS = 'GIF_SEARCH_SUCCESS';
-export const GIF_SEARCH_FAILURE = 'GIF_SEARCH_FAILURE';
-export const GIF_SEARCH_CLEAR = 'GIF_SEARCH_CLEAR';
+export const API_SEARCH_SUBMIT = 'API_SEARCH_SUBMIT';
+export const API_SEARCH_SUCCESS = 'API_SEARCH_SUCCESS';
+export const API_SEARCH_FAILURE = 'API_SEARCH_FAILURE';
+export const CLEAR_SEARCH_RESULTS = 'CLEAR_SEARCH_RESULTS';
 export const GIF_MODAL_SHOW = 'GIF_MODAL_SHOW';
 export const GIF_MODAL_HIDE = 'GIF_MODAL_HIDE';
 
 export const APICall = (query, offset = 0, limit = 10) => {
+  return function (dispatch) {
   const request = `http://api.giphy.com/v1/gifs/search?q=${query}&api_key=${keys.giphy}&limit=${limit}&offset=${offset}`;
-  return function(dispatch) {
-    dispatch({ type: GIF_SEARCH_REQUEST, query });
+    dispatch({ type: API_SEARCH_SUBMIT, query });
     return fetch(request)
       .then(response => response.json())
       .then(
         response => dispatch(receiveResults(response)),
-        error => dispatch({ type: GIF_SEARCH_FAILURE, error })
+        error => dispatch({ type: API_SEARCH_FAILURE, error })
       );
   };
 };
 
 const receiveResults = (response) => {
   return {
-    type: GIF_SEARCH_SUCCESS, response
+    type: API_SEARCH_SUCCESS, response
   }
 }
 
@@ -40,5 +40,5 @@ export const gifModalHide = () => {
 };
 
 export const gifSearchClear = () => (
-  { type: GIF_SEARCH_CLEAR }
+  { type: CLEAR_SEARCH_RESULTS }
 );

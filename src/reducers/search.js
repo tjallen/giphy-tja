@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux';
 import {
-  GIF_SEARCH_REQUEST,
-  GIF_SEARCH_SUCCESS,
-  GIF_SEARCH_FAILURE,
-  GIF_SEARCH_CLEAR,
+  API_SEARCH_SUBMIT,
+  API_SEARCH_SUCCESS,
+  API_SEARCH_FAILURE,
+  CLEAR_SEARCH_RESULTS,
 } from './../actions';
 
 const query = (state = '', action) => {
   switch (action.type) {
-    case GIF_SEARCH_REQUEST:
+    case API_SEARCH_SUBMIT:
       return action.query;
     default:
       return state;
@@ -17,10 +17,10 @@ const query = (state = '', action) => {
 
 const results = (state = [], action) => {
   switch(action.type) {
-    case GIF_SEARCH_SUCCESS:
+    case API_SEARCH_SUCCESS:
       return action.response.data;
-    case GIF_SEARCH_FAILURE:
-    case GIF_SEARCH_CLEAR:
+    case API_SEARCH_FAILURE:
+    case CLEAR_SEARCH_RESULTS:
       return [];
     default:
       return state;
@@ -34,12 +34,12 @@ const resultsPerPage = (state = 10, action) => {
 
 const pagination = (state = null, action) => {
   switch(action.type) {
-    case GIF_SEARCH_CLEAR:
-    case GIF_SEARCH_REQUEST:
+    case CLEAR_SEARCH_RESULTS:
+    case API_SEARCH_SUBMIT:
       return null;
-    case GIF_SEARCH_SUCCESS:
+    case API_SEARCH_SUCCESS:
       return action.response.pagination;
-    case GIF_SEARCH_FAILURE:
+    case API_SEARCH_FAILURE:
     default:
       return state;
   }
@@ -47,10 +47,10 @@ const pagination = (state = null, action) => {
 
 const isFetching = (state = false, action) => {
   switch(action.type) {
-    case GIF_SEARCH_REQUEST:
+    case API_SEARCH_SUBMIT:
       return true;
-    case GIF_SEARCH_FAILURE:
-    case GIF_SEARCH_SUCCESS:
+    case API_SEARCH_FAILURE:
+    case API_SEARCH_SUCCESS:
       return false;
     default:
       return state;
