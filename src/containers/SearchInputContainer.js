@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import SearchInput from './../components/SearchInput';
 import {
-  APICall,
+  searchSubmit,
   gifSearchClear,
 } from './../actions';
 
@@ -18,8 +18,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    APICall: (query) => {
-      dispatch(APICall(query))
+    searchSubmit: (query) => {
+      dispatch(searchSubmit(query))
     }, 
     gifSearchClear: () => {
       dispatch(gifSearchClear())

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-  APICall,
+  changePage,
 } from './../actions';
 import Pagination from './../components/Pagination';
 
@@ -36,8 +36,8 @@ class PaginationContainer extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    APICall: (query, offset, limit) => {
-      dispatch(APICall(query, offset, limit))
+    changePage: (query, offset, limit) => {
+      dispatch(changePage(query, offset, limit))
     }, 
   }
 }

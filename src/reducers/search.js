@@ -3,6 +3,9 @@ import {
   API_SEARCH_SUBMIT,
   API_SEARCH_SUCCESS,
   API_SEARCH_FAILURE,
+  PAGE_CHANGE_SUBMIT,
+  PAGE_CHANGE_SUCCESS,
+  PAGE_CHANGE_FAILURE,
   CLEAR_SEARCH_RESULTS,
 } from './../actions';
 
@@ -18,8 +21,10 @@ const query = (state = '', action) => {
 const results = (state = [], action) => {
   switch(action.type) {
     case API_SEARCH_SUCCESS:
+    case PAGE_CHANGE_SUCCESS:
       return action.response.data;
     case API_SEARCH_FAILURE:
+    case PAGE_CHANGE_FAILURE:
     case CLEAR_SEARCH_RESULTS:
       return [];
     default:
@@ -36,8 +41,10 @@ const pagination = (state = null, action) => {
   switch(action.type) {
     case CLEAR_SEARCH_RESULTS:
     case API_SEARCH_SUBMIT:
+    case PAGE_CHANGE_SUBMIT:
       return null;
     case API_SEARCH_SUCCESS:
+    case PAGE_CHANGE_SUCCESS:
       return action.response.pagination;
     case API_SEARCH_FAILURE:
     default:
@@ -48,9 +55,11 @@ const pagination = (state = null, action) => {
 const isFetching = (state = false, action) => {
   switch(action.type) {
     case API_SEARCH_SUBMIT:
+    case PAGE_CHANGE_SUBMIT:
       return true;
     case API_SEARCH_FAILURE:
     case API_SEARCH_SUCCESS:
+    case PAGE_CHANGE_SUCCESS:
       return false;
     default:
       return state;
